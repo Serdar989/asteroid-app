@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="" />
+
+    <title>Table page</title>
+  </head>
+  <body id="table-page">
+    <div class="loader-container">
+      <img src="images/loader4.gif" class="loader" alt="" />
+    </div>
+    <div class="container">
+      <div class="table-wrapper">
+        <div class="row">
+          <section id="input-section">
+            <h1>Asteroid app 🌠</h1>
+            <div class="feedback"></div>
+            <form id="asteroid-date">
+              <div class="start-date">
+                <span>Start date: </span>
+                <input type="date" class="input-date" id="start-date-search" />
+              </div>
+              <div class="end-date">
+                <span>End date: </span>
+                <input type="date" class="input-date" id="end-date-search" />
+              </div>
+              <button type="submit" class="btn yellow">
+                Prikaži Asteroide
+              </button>
+            </form>
+          </section>
+        </div>
+        <!-- input-section -->
+
+        <div class="row">
+          <section id="table-section">
+            <table class="asteroid-table">
+              <thead class="table-header">
+                <tr>
+                  <th>Datum</th>
+                  <th>Ime</th>
+                  <th>Brzina kretanja(km/h)</th>
+                  <th>Min. Prečnik(m)</th>
+                  <th>Max. Prečnik(m)</th>
+                </tr>
+              </thead>
+              <tbody class="asteroid-info">
+                <!-- <tr class="table-element">
+                  <td class="fly-date">12/9/2020</td>
+                  <td class="name">Maria Anders</td>
+                  <td class="speed">222 km/h</td>
+                  <td class="min-radius">222 m</td>
+                  <td class="max-radius">422 km/h</td>
+                </tr>
+                <tr>
+                  <td>12/9/2020</td>
+                  <td>Maria Anders</td>
+                  <td>222 km/h</td>
+                  <td>222 m</td>
+                  <td>422 km/h</td>
+                </tr>
+                <tr>
+                  <td>12/9/2020</td>
+                  <td>Maria Anders</td>
+                  <td>222 km/h</td>
+                  <td>222 m</td>
+                  <td>422 km/h</td>
+                </tr> -->
+              </tbody>
+            </table>
+            <div class="pagination">
+              <!-- <div class="tableList" id="listingTable"></div> -->
+              <div class="pagination-block">
+                <span class="pageButton outline-none" id="button-prev"
+                  >Prethodna</span
+                >
+                <span class="page-number" class="outline-none"></span>
+                <span class="pageButton outline-none" id="button-next"
+                  >Sledeća</span
+                >
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- table-section -->
+        <div class="row">
+          <section id="select-section">
+            <div class="select-feedback"></div>
+            <form id="searchForm">
+              <select id="asteroids">
+                <option id="option-label" value="" selected>
+                  Izaberi asteroid
+                </option>
+              </select>
+              <div class="asteroid-list-container">
+                <ul class="asteroid-list">
+                  <!-- <li class="list-item">
+                      <div class="asteroids-item">Asteroid 1</div>
+                      <a href="#" class="delete-icon" data-id="0"
+                        ><i class="fas fa-times"></i
+                      ></a>
+                    </li>
+                    <li class="list-item">
+                      <div class="asteroids-item">Asteroid 1</div>
+                      <a href="#" class="delete-icon" data-id="0"
+                        ><i class="fas fa-times"></i
+                      ></a>
+                    </li>
+                    <li class="list-item">
+                      <div class="asteroids-item">Asteroid 1</div>
+                      <a href="#" class="delete-icon" data-id="0"
+                        ><i class="fas fa-times"></i
+                      ></a>
+                    </li>
+                    <li class="list-item">
+                      <div class="asteroids-item">Asteroid 1</div>
+                      <a href="#" class="delete-icon" data-id="0"
+                        ><i class="fas fa-times"></i
+                      ></a>
+                    </li> -->
+                </ul>
+              </div>
+              <div class="btn-page">
+                <a href="asteroid-chart.html" id="chart-show">
+                  Broj prolazaka pored Zemlje
+                </a>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
