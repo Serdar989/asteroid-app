@@ -18,7 +18,7 @@ export default class UI {
     elements.loader.classList.add('showItem');
     setTimeout(() => {
       elements.loader.classList.remove('showItem');
-    }, 1500);
+    }, 3000);
   }
   hideLoader() {
     elements.loader.classList.remove('showItem');
