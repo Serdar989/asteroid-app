@@ -13,8 +13,8 @@ import STORAGE from './asteroidStorage';
 
   /* Table controller */
 
-  elements.startDate.value = '1900-01-01';
-  elements.endDate.value = '1900-01-07';
+  // elements.startDate.value = '1900-01-01';
+  // elements.endDate.value = '1900-01-07';
   elements.dateForm.addEventListener('submit', (event) => {
     event.preventDefault();
     ['table-section', 'select-section'].forEach(function (id) {
