@@ -9,12 +9,9 @@ import STORAGE from './asteroidStorage';
   const asteroid = new ASTEROID();
   const ui = new UI(currPage);
   const storage = new STORAGE();
-  ui.showLoader();
 
   /* Table controller */
 
-  // elements.startDate.value = '1900-01-01';
-  // elements.endDate.value = '1900-01-07';
   elements.dateForm.addEventListener('submit', (event) => {
     event.preventDefault();
     ['table-section', 'select-section'].forEach(function (id) {
@@ -41,12 +38,14 @@ import STORAGE from './asteroidStorage';
         elements.feedback
       );
     } else {
-      ui.showLoader();
       elements.asteroidList.innerHTML = '';
       storage.removeLocalStorage();
+      ui.renderSpinner();
+
       asteroid
         .asteroidDate(searchStart, searchEnd)
         .then((asteroidInfo) => {
+          ui.renderSpinner();
           ui.asteroidTable(asteroidInfo);
           ui.pageNumbers(asteroidInfo);
           storage.updateStorage(asteroidInfo);

@@ -88,7 +88,6 @@ export default class CHARTUI {
             yAxes: [
               {
                 ticks: {
-                  //    beginAtZero: true,
                   fontColor: '#fff',
                 },
                 gridLines: {

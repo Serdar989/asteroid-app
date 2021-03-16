@@ -4,6 +4,7 @@ export default class UI {
   constructor(currPage) {
     this.current_page = currPage;
     this.records_per_page = 4;
+    this.parentElement = document.querySelector('.loader-container');
   }
 
   //show feedback
@@ -14,15 +15,20 @@ export default class UI {
       feedback.classList.remove('showItem');
     }, 3000);
   }
-  showLoader() {
-    elements.loader.classList.add('showItem');
-    setTimeout(() => {
-      elements.loader.classList.remove('showItem');
-    }, 3000);
+
+  renderSpinner() {
+    const markup = `
+      <div class="loader-container">
+      <img src="images/loader4.gif" class="loader" alt="" /> 
+    </div>
+  `;
+    this.clear();
+    elements.tableBody.insertAdjacentHTML('afterbegin', markup);
   }
-  hideLoader() {
-    elements.loader.classList.remove('showItem');
+  clear() {
+    elements.tableBody.innerHTML = '';
   }
+
   prevPage(currentPage, info) {
     this.current_page = currentPage;
     this.asteroidTable(info);

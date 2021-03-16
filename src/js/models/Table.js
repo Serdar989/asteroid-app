@@ -37,7 +37,6 @@ export default class ASTEROID {
           return { tableDate, astId, astName, astSpeed, minRadius, maxRadius };
         });
         if (asteroidInfoHazardous.length) {
-          // array empty or does not exist
           asteroidHazardousArray.push(asteroidInfoHazardous);
         }
       }
@@ -46,7 +45,7 @@ export default class ASTEROID {
       const numPages = Math.ceil(
         mergedAsteroidInfo.length / this.records_per_page
       );
-      console.log(numPages, mergedAsteroidInfo.length);
+
       return [mergedAsteroidInfo, numPages];
     } catch (error) {
       console.log(error);

@@ -10,7 +10,6 @@ const controlChartPage = async function () {
   const ui = new CHARTUI();
   let urls = [];
   let showChartData;
-  // ui.showLoader();
 
   if (asteroid.idList.length === 0) {
     ui.showMessage();
@@ -21,6 +20,8 @@ const controlChartPage = async function () {
       );
     }
     try {
+      ui.showLoader();
+
       state.chartDataArr = await asteroid.asteroidDataArr(urls);
 
       showChartData = asteroid.getChartData(state.chartDataArr);
@@ -32,10 +33,6 @@ const controlChartPage = async function () {
   }
 };
 
-// Display local storage
-// document.addEventListener('DOMContentLoaded', () => {
-//   controlChartPage();
-// });
 document.addEventListener('readystatechange', (event) => {
   const ui = new CHARTUI();
 
