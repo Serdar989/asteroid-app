@@ -20,7 +20,7 @@ const controlChartPage = async function () {
       );
     }
     try {
-      ui.showLoader();
+      ui.renderSpinner();
 
       state.chartDataArr = await asteroid.asteroidDataArr(urls);
 
