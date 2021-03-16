@@ -37,7 +37,7 @@ document.addEventListener('readystatechange', (event) => {
   const ui = new CHARTUI();
 
   if (event.target.readyState === 'interactive') {
-    ui.showLoader();
+    ui.renderSpinner();
   } else if (event.target.readyState === 'complete') {
     controlChartPage();
   }
