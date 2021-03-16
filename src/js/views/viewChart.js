@@ -6,11 +6,26 @@ export default class CHARTUI {
     elements.feedback.classList.add('showItem');
     elements.feedback.innerHTML = `<h1>Nije izabran ni jedan asteroid, vratite se na prethodnu stranu izaberite asteroid</h1>`;
   }
-  showLoader() {
-    elements.loader.classList.add('showItem');
-    setTimeout(() => {
-      elements.loader.classList.remove('showItem');
-    }, 1500);
+  // showLoader() {
+  //   elements.loader.classList.add('showItem');
+  //   setTimeout(() => {
+  //     elements.loader.classList.remove('showItem');
+  //   }, 1500);
+  // }
+
+  renderSpinner() {
+    const chart = document.getElementById('myChart');
+
+    const markup = `
+      <div class="loader-container">
+      <img src="images/loader4.gif" class="loader" alt="" /> 
+    </div>
+  `;
+    this.clear();
+    chart.insertAdjacentHTML('afterbegin', markup);
+  }
+  clear() {
+    elements.tableBody.innerHTML = '';
   }
   showChart(showChartData) {
     let name, value, color;
