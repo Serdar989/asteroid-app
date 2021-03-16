@@ -25,7 +25,8 @@ export default class CHARTUI {
     chart.insertAdjacentHTML('afterbegin', markup);
   }
   clear() {
-    elements.tableBody.innerHTML = '';
+    const chart = document.getElementById('myChart');
+    chart.innerHTML = '';
   }
   showChart(showChartData) {
     let name, value, color;
