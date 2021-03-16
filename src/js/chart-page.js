@@ -16,7 +16,7 @@ const controlChartPage = async function () {
   } else {
     for (let i = 0; i < asteroid.idList.length; i++) {
       urls.push(
-        `http://www.neowsapp.com/rest/v1/neo/${asteroid.idList[i]}?api_key=${api_key}`
+        `https://www.neowsapp.com/rest/v1/neo/${asteroid.idList[i]}?api_key=${api_key}`
       );
     }
     try {
