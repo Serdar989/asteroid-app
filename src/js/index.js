@@ -15,6 +15,7 @@ import STORAGE from './asteroidStorage';
 
   elements.dateForm.addEventListener('submit', (event) => {
     event.preventDefault();
+    elements.loaderContainer.classList.remove('visible-loader');
     ['table-section', 'select-section'].forEach(function (id) {
       document.getElementById(id).style.display = 'block';
     });
@@ -147,6 +148,7 @@ import STORAGE from './asteroidStorage';
 
   // Display local storage
   document.addEventListener('DOMContentLoaded', () => {
+    elements.loaderContainer.classList.remove('visible-loader');
     const asteroids = storage.getAsteroids();
     if (asteroids[0] !== null) {
       ui.current_page = storage.getCurrPage();
@@ -160,7 +162,8 @@ import STORAGE from './asteroidStorage';
       ui.checkButtonOpacity(currPage, storage.getAsteroids());
 
       ui.updateSelection(storage.loadedSelectList());
+      console.log('gghg');
+      ui.renderSpinner();
     }
   });
-  ui.renderSpinner();
 })();

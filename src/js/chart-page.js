@@ -10,9 +10,10 @@ const controlChartPage = async function () {
   const ui = new CHARTUI();
   let urls = [];
   let showChartData;
-
+  elements.loaderContainer.classList.remove('visible-loader');
   if (asteroid.idList.length === 0) {
     ui.showMessage();
+    ui.renderSpinner();
   } else {
     for (let i = 0; i < asteroid.idList.length; i++) {
       urls.push(
@@ -32,12 +33,19 @@ const controlChartPage = async function () {
   }
 };
 
-document.addEventListener('readystatechange', (event) => {
-  const ui = new CHARTUI();
+// document.addEventListener('readystatechange', (event) => {
+//   const ui = new CHARTUI();
 
-  if (event.target.readyState === 'interactive') {
-    ui.renderSpinner();
-  } else if (event.target.readyState === 'complete') {
-    controlChartPage();
-  }
+//   if (event.target.readyState === 'interactive') {
+//     ui.renderSpinner();
+//   } else if (event.target.readyState === 'complete') {
+//     controlChartPage();
+//   }
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+  elements.loaderContainer.classList.remove('visible-loader');
+  controlChartPage();
+
+  ui.renderSpinner();
 });
