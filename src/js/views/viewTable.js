@@ -15,9 +15,10 @@ export default class UI {
       feedback.classList.remove('showItem');
     }, 3000);
   }
-
   renderSpinner() {
-    elements.loaderContainer.classList.add('visible-loader');
+    setTimeout(() => {
+      elements.loaderContainer.classList.add('visible-loader');
+    }, 3000);
   }
 
   prevPage(currentPage, info) {
