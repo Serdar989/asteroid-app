@@ -1,3 +1,4 @@
+import mediaQuery from './mediaQuery.js';
 import CHARTUI from './views/viewChart';
 import CHARTDATA from './models/Chart';
 import { state } from './models/Chart';
@@ -9,7 +10,7 @@ const controlChartPage = async function () {
   const asteroid = new CHARTDATA();
   const ui = new CHARTUI();
   let urls = [];
-  let showChartData;
+  // let showChartData;
   elements.loaderContainer.classList.remove('visible-loader');
   if (asteroid.idList == null || asteroid.idList.length === 0) {
     ui.showMessage();
@@ -23,9 +24,9 @@ const controlChartPage = async function () {
     try {
       state.chartDataArr = await asteroid.asteroidDataArr(urls);
 
-      showChartData = asteroid.getChartData(state.chartDataArr);
+      state.showChartData = asteroid.getChartData(state.chartDataArr);
 
-      ui.showChart(showChartData);
+      ui.showChart(state.showChartData, state.titleSize, state.titleText);
       ui.renderSpinner();
     } catch (err) {
       console.log(err);
@@ -33,21 +34,16 @@ const controlChartPage = async function () {
   }
 };
 
-// document.addEventListener('readystatechange', (event) => {
-//   const ui = new CHARTUI();
+const controlQuery = function () {
+  const ui = new CHARTUI();
 
-//   if (event.target.readyState === 'interactive') {
-//     ui.renderSpinner();
-//   } else if (event.target.readyState === 'complete') {
-//     controlChartPage();
-//   }
-// });
-
+  ui.showChart(state.showChartData, state.titleSize, state.titleText);
+};
 document.addEventListener('DOMContentLoaded', () => {
   const ui = new CHARTUI();
 
   elements.loaderContainer.classList.remove('visible-loader');
   controlChartPage();
-
+  mediaQuery.addHandlerQuery(controlQuery);
   ui.renderSpinner();
 });

@@ -112,6 +112,7 @@ $bp-largest: 75em; // 1200px
 $bp-large: 62.5em; // 1000px
 $bp-medium: 50em; // 800px;
 $bp-small: 37.5em; // 600px;
+$bp-extra-small: 23.75em; // 380px;
 
 $grey: #eee;
 $white: #fff;
@@ -361,11 +362,19 @@ body#table-page {
           padding-left: 200px;
           margin-left: 234px;
           background: $white;
+          @media only screen and (max-width: $bp-small) {
+            margin-left: 50%;
+            width: auto;
+          }
         }
         td:before {
           position: absolute;
           left: -234px;
           width: 234px;
+          @media only screen and (max-width: $bp-small) {
+            left: -100%;
+            width: 100%;
+          }
         }
         td:nth-of-type(1):before {
           content: 'Datum';
@@ -433,6 +442,9 @@ body#table-page {
         display: grid;
         grid-gap: 20px;
         grid-template-columns: 2fr 1fr;
+        @media only screen and (max-width: $bp-medium) {
+          grid-template-columns: 1fr;
+        }
         &:focus {
           outline: none;
           box-shadow: none;
@@ -441,6 +453,12 @@ body#table-page {
           width: 100%;
           padding: 6px 3px;
           height: 50px;
+          @media only screen and (max-width: $bp-medium) {
+            width: 300px;
+          }
+          @media only screen and (max-width: $bp-extra-small) {
+            width: 230px;
+          }
           .option-element {
             padding: 10px !important;
             margin: 10px !important;
@@ -450,6 +468,12 @@ body#table-page {
           padding: 20px 10px;
           border: 1px solid #000;
           background: $backgroundGray;
+          @media only screen and (max-width: $bp-medium) {
+            width: 300px;
+          }
+          @media only screen and (max-width: $bp-extra-small) {
+            width: 230px;
+          }
           ul li.list-item {
             display: flex;
             margin-bottom: 10px;
@@ -468,7 +492,8 @@ body#table-page {
 //CHART PAGE
 body#chart-page {
   background: url('./../images/rocket-3122690.png');
-
+  background-position: center center;
+  background-repeat: no-repeat;
   padding: 7rem 0;
   font-size: $default-font-size;
 

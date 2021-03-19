@@ -13,9 +13,8 @@ export default class CHARTUI {
     }, 2000);
   }
 
-  showChart(showChartData) {
+  showChart(showChartData, titleSize, titleText) {
     let name, value, color;
-
     name = showChartData[0];
     value = showChartData[1];
     color = showChartData[2];
@@ -30,7 +29,7 @@ export default class CHARTUI {
           labels: name,
           datasets: [
             {
-              label: 'Broj rizlicitih prolazaka pored Zemlje',
+              label: 'Broj razlicitih prolazaka pored Zemlje',
               data: value,
               backgroundColor: color,
               borderColor: ['rgba(255, 255, 255, 1)'],
@@ -100,10 +99,8 @@ export default class CHARTUI {
           },
           title: {
             display: true,
-
-            text:
-              'Prikaz broja prolaza asteroida koji su prošli blizu Zemlje od 1900. do 1999. god.',
-            fontSize: '20',
+            text: titleText,
+            fontSize: titleSize,
             fontColor: '#fff',
           },
           legend: {

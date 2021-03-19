@@ -2,6 +2,10 @@
 
 export const state = {
   chartDataArr: [],
+  showChartData: [],
+  titleText:
+    'Prikaz broja prolaza asteroida koji su prošli blizu Zemlje od 1900. do 1999. god.',
+  titleSize: '28',
 };
 
 export default class CHARTDATA {
@@ -62,6 +66,5 @@ export default class CHARTDATA {
       objArr.push({ astName, numOfRotation });
     }
     return [nameArr, valueArr, chartColorArr];
-    //this.showChart(nameArr, valueArr, chartColorArr);
   }
 }
