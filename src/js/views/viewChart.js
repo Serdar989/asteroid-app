@@ -10,7 +10,7 @@ export default class CHARTUI {
   renderSpinner() {
     setTimeout(() => {
       elements.loaderContainer.classList.add('visible-loader');
-    }, 3000);
+    }, 2000);
   }
 
   showChart(showChartData) {

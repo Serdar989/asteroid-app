@@ -9,6 +9,7 @@ import STORAGE from './asteroidStorage';
   const asteroid = new ASTEROID();
   const ui = new UI(currPage);
   const storage = new STORAGE();
+  elements.loaderContainer.classList.remove('visible-loader');
 
   /* Table controller */
 
@@ -54,6 +55,7 @@ import STORAGE from './asteroidStorage';
         })
         .catch((error) => console.log(error));
     }
+    ui.renderSpinner();
   });
 
   /* pagination  */

@@ -18,7 +18,7 @@ export default class UI {
   renderSpinner() {
     setTimeout(() => {
       elements.loaderContainer.classList.add('visible-loader');
-    }, 3000);
+    }, 2000);
   }
 
   prevPage(currentPage, info) {
