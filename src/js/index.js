@@ -3,6 +3,7 @@ import { elements } from './views/base';
 import ASTEROID from './models/Table';
 import UI from './views/viewTable';
 import STORAGE from './asteroidStorage';
+//elements.loaderContainer.classList.add('visible-loader');
 
 (function () {
   let currPage = 1;
@@ -40,15 +41,27 @@ import STORAGE from './asteroidStorage';
     } else {
       elements.asteroidList.innerHTML = '';
       storage.removeLocalStorage();
-      ui.renderSpinner();
+      //ui.renderSpinner();
 
       asteroid
         .asteroidDate(searchStart, searchEnd)
         .then((asteroidInfo) => {
           ui.renderSpinner();
+          // elements.loaderContainer.style.display = 'block';
+          // document.onreadystatechange = function () {
+
+          //   if (document.readyState !== 'complete') {
+          //     document.querySelector('.loader-container').style.display =
+          //       'block';
+          //   } else {
+          //     document.querySelector('.loader-container').style.display =
+          //       'none';
+          //   }
+          // };
           ui.asteroidTable(asteroidInfo);
           ui.pageNumbers(asteroidInfo);
           storage.updateStorage(asteroidInfo);
+          // elements.loaderContainer.style.display = 'none';
         })
         .catch((error) => console.log(error));
     }
@@ -149,4 +162,5 @@ import STORAGE from './asteroidStorage';
       ui.updateSelection(storage.loadedSelectList());
     }
   });
+  ui.renderSpinner();
 })();

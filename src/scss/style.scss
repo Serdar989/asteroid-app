@@ -181,12 +181,24 @@ html {
       bottom: 0;
       background: $opacityGray;
       z-index: 100;
+      opacity: 1;
+      visibility: visible;
+      height: auto;
+      transition: all 0.5s;
+
+      &.visible-loader {
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+      }
       img.loader {
         position: absolute;
         left: 50%;
         top: 50%;
         z-index: 1000;
         transform: translate(-50%, -50%);
+        height: 3rem;
+        width: 3rem;
       }
     }
   }
@@ -322,7 +334,55 @@ body#table-page {
           }
         }
       }
-
+      @media only screen and (max-width: $bp-large) {
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+          display: block;
+        }
+        thead tr {
+          position: absolute;
+          top: -9999px;
+          left: -9999px;
+        }
+        tr {
+          border: 1px solid #ccc;
+          &:nth-child(odd) {
+            background: $darkBlue !important;
+          }
+        }
+        td {
+          border: none;
+          border-bottom: 1px solid #eee;
+          position: relative;
+          padding-left: 200px;
+          margin-left: 234px;
+          background: $white;
+        }
+        td:before {
+          position: absolute;
+          left: -234px;
+          width: 234px;
+        }
+        td:nth-of-type(1):before {
+          content: 'Datum';
+        }
+        td:nth-of-type(2):before {
+          content: 'Ime';
+        }
+        td:nth-of-type(3):before {
+          content: 'Brzina kretanja(km/h)';
+        }
+        td:nth-of-type(4):before {
+          content: 'Min. Prečnik(m)';
+        }
+        td:nth-of-type(5):before {
+          content: 'Max. Prečnik(m)';
+        }
+      }
       .pagination {
         display: block;
         margin: 0 auto;

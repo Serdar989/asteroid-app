@@ -16,4 +16,6 @@ export const elements = {
   nextButton: document.getElementById('button-next'),
   asteroidsOption: document.getElementById('asteroids'),
   pageNumber: document.querySelector('.page-number'),
+  chartContainer: document.querySelector('.chart-container'),
+  loaderContainer: document.querySelector('.loader-container'),
 };

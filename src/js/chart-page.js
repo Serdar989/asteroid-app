@@ -20,13 +20,12 @@ const controlChartPage = async function () {
       );
     }
     try {
-      ui.renderSpinner();
-
       state.chartDataArr = await asteroid.asteroidDataArr(urls);
 
       showChartData = asteroid.getChartData(state.chartDataArr);
 
       ui.showChart(showChartData);
+      ui.renderSpinner();
     } catch (err) {
       console.log(err);
     }

@@ -17,16 +17,7 @@ export default class UI {
   }
 
   renderSpinner() {
-    const markup = `
-      <div class="loader-container">
-      <img src="images/loader4.gif" class="loader" alt="" /> 
-    </div>
-  `;
-    this.clear();
-    elements.tableBody.insertAdjacentHTML('afterbegin', markup);
-  }
-  clear() {
-    elements.tableBody.innerHTML = '';
+    elements.loaderContainer.classList.add('visible-loader');
   }
 
   prevPage(currentPage, info) {
