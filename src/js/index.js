@@ -3,7 +3,6 @@ import { elements } from './views/base';
 import ASTEROID from './models/Table';
 import UI from './views/viewTable';
 import STORAGE from './asteroidStorage';
-//elements.loaderContainer.classList.add('visible-loader');
 
 (function () {
   let currPage = 1;
@@ -48,21 +47,10 @@ import STORAGE from './asteroidStorage';
         .asteroidDate(searchStart, searchEnd)
         .then((asteroidInfo) => {
           ui.renderSpinner();
-          // elements.loaderContainer.style.display = 'block';
-          // document.onreadystatechange = function () {
 
-          //   if (document.readyState !== 'complete') {
-          //     document.querySelector('.loader-container').style.display =
-          //       'block';
-          //   } else {
-          //     document.querySelector('.loader-container').style.display =
-          //       'none';
-          //   }
-          // };
           ui.asteroidTable(asteroidInfo);
           ui.pageNumbers(asteroidInfo);
           storage.updateStorage(asteroidInfo);
-          // elements.loaderContainer.style.display = 'none';
         })
         .catch((error) => console.log(error));
     }
@@ -146,7 +134,6 @@ import STORAGE from './asteroidStorage';
     false
   );
 
-  // Display local storage
   document.addEventListener('DOMContentLoaded', () => {
     elements.loaderContainer.classList.remove('visible-loader');
     const asteroids = storage.getAsteroids();
@@ -162,8 +149,8 @@ import STORAGE from './asteroidStorage';
       ui.checkButtonOpacity(currPage, storage.getAsteroids());
 
       ui.updateSelection(storage.loadedSelectList());
-      console.log('gghg');
       ui.renderSpinner();
     }
+    ui.renderSpinner();
   });
 })();

@@ -11,7 +11,7 @@ const controlChartPage = async function () {
   let urls = [];
   let showChartData;
   elements.loaderContainer.classList.remove('visible-loader');
-  if (asteroid.idList.length === 0) {
+  if (asteroid.idList == null || asteroid.idList.length === 0) {
     ui.showMessage();
     ui.renderSpinner();
   } else {
@@ -44,6 +44,8 @@ const controlChartPage = async function () {
 // });
 
 document.addEventListener('DOMContentLoaded', () => {
+  const ui = new CHARTUI();
+
   elements.loaderContainer.classList.remove('visible-loader');
   controlChartPage();
 
