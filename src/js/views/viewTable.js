@@ -20,7 +20,6 @@ export default class UI {
       elements.loaderContainer.classList.add('visible-loader');
     }, 2000);
   }
-
   prevPage(currentPage, info) {
     this.current_page = currentPage;
     this.asteroidTable(info);
@@ -32,6 +31,8 @@ export default class UI {
   }
 
   pageNumbers(info) {
+    console.log('sasasasa');
+
     const pageNum = info[1];
     elements.pageNumber.innerHTML = '';
 
