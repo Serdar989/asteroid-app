@@ -73,6 +73,7 @@ class MediaQuery {
     }
     if (mqls[5].matches) {
       state.titleSize = '14';
+      state.labelFont = 12;
       state.titleText = [
         'Prikaz broja prolaza asteroida koji su prošli blizu ',
         'Zemlje od 1900. do 1999. god.',

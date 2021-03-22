@@ -29,33 +29,33 @@ import STORAGE from './asteroidStorage';
 
     if (searchStart === '' && searchEnd === '') {
       ui.showFeedback('Molimo Vas, unesite datum', elements.feedback);
+      ui.renderSpinner();
     } else if (rez > 7) {
       ui.showFeedback(
         'Maksimalni period između dva datuma je 7 dana, molimo Vas unesite datume u skladu sa zahtevom',
         elements.feedback
       );
+      ui.renderSpinner();
     } else if (rez < 0) {
       ui.showFeedback(
         'Početni datum mora biti pre završnog, molimo Vas unesite pravilno parametre',
         elements.feedback
       );
+      ui.renderSpinner();
     } else {
       elements.asteroidList.innerHTML = '';
       storage.removeLocalStorage();
-      //ui.renderSpinner();
 
       asteroid
         .asteroidDate(searchStart, searchEnd)
         .then((asteroidInfo) => {
-          ui.renderSpinner();
-
           ui.asteroidTable(asteroidInfo);
           ui.pageNumbers(asteroidInfo);
           storage.updateStorage(asteroidInfo);
+          ui.renderSpinner();
         })
         .catch((error) => console.log(error));
     }
-    ui.renderSpinner();
   });
 
   /* pagination  */
@@ -78,7 +78,6 @@ import STORAGE from './asteroidStorage';
       uiSelect.nextPage(currPage, storageInfo);
       uiSelect.selectedPage(currPage, storageInfo);
       uiSelect.checkButtonOpacity(currPage, storageInfo);
-
       storage.saveCurrPage(currPage);
     }
   });

@@ -161,6 +161,9 @@ html {
   font-size: 62.5%; // 1rem = 10px, 10px/16px = 62.5%
   min-height: 100%;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media only screen and (max-width: $bp-medium) {
     font-size: 50%;
@@ -172,6 +175,11 @@ html {
     line-height: 1;
     padding: 0;
     margin: 0;
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    // right: 0;
+    // left: 0;
     .loader-container {
       margin: 0 auto;
       text-align: center;
@@ -274,18 +282,54 @@ body#table-page {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 30px 0;
+
   .table-wrapper {
     padding: 30px;
     background: $backgroundGray;
-    margin: 7rem 0;
+    width: 120rem;
+
+    margin: 0 auto;
+
+    @media only screen and (max-width: $bp-xlargest) {
+      & {
+        width: 90rem;
+      }
+    }
+    @media only screen and (max-width: $bp-large) {
+      & {
+        height: auto;
+        width: 60rem;
+      }
+    }
+    @media only screen and (max-width: $bp-small) {
+      & {
+        width: auto;
+      }
+    }
+    @media only screen and (max-width: $bp-extra-small) {
+      & {
+        padding: 15px;
+      }
+    }
     .card p {
       font-size: 0.7rem;
     }
 
     #input-section {
       padding-bottom: 60px;
+      @media only screen and (max-width: $bp-large) {
+        & {
+          padding-bottom: 30px;
+        }
+      }
       h1 {
         margin-bottom: 50px;
+        @media only screen and (max-width: $bp-large) {
+          & {
+            margin-bottom: 30px;
+          }
+        }
       }
 
       #asteroid-date {
@@ -438,15 +482,18 @@ body#table-page {
     }
 
     #select-section {
-      padding: 60px 0;
+      padding-top: 30px;
       width: 100%;
 
       #searchForm {
         display: grid;
-        grid-gap: 20px;
-        grid-template-columns: 2fr 1fr;
-        @media only screen and (max-width: $bp-medium) {
-          grid-template-columns: 1fr;
+        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        @media only screen and (max-width: $bp-large) {
+          & {
+            grid-template-columns: 1fr;
+          }
         }
         &:focus {
           outline: none;
@@ -488,6 +535,9 @@ body#table-page {
             }
           }
         }
+        .btn-page {
+          height: fit-content;
+        }
       }
     }
   }
@@ -505,7 +555,12 @@ body#chart-page {
     height: 80vh;
     padding: 20px;
     width: 100%;
-
+    @media only screen and (max-width: $bp-small) {
+      & {
+        width: auto;
+        height: auto;
+      }
+    }
     .feedback {
       margin: 50px 0;
       width: 100%;
@@ -515,11 +570,23 @@ body#chart-page {
     }
     .chart-container {
       margin-top: 50px;
-      height: 60vh !important;
+      height: 60vh;
 
-      width: auto !important;
+      width: 100;
+      .chartjs-size-monitor,
+      .chartjs-size-monitor-expand,
+      .chartjs-size-monitor-shrink {
+        position: relative;
+      }
+      @media only screen and (max-width: $bp-small) {
+        & {
+          height: auto;
+          width: auto;
+        }
+      }
       #myChart {
         color: $white !important;
+        width: 90% !important;
       }
     }
   }

@@ -26,7 +26,12 @@ const controlChartPage = async function () {
 
       state.showChartData = asteroid.getChartData(state.chartDataArr);
 
-      ui.showChart(state.showChartData, state.titleSize, state.titleText);
+      ui.showChart(
+        state.showChartData,
+        state.titleSize,
+        state.titleText,
+        state.labelFont
+      );
       ui.renderSpinner();
     } catch (err) {
       console.log(err);

@@ -6,6 +6,7 @@ export const state = {
   titleText:
     'Prikaz broja prolaza asteroida koji su prošli blizu Zemlje od 1900. do 1999. god.',
   titleSize: '28',
+  labelFont: 16,
 };
 
 export default class CHARTDATA {

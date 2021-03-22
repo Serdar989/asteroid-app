@@ -13,7 +13,7 @@ export default class CHARTUI {
     }, 2000);
   }
 
-  showChart(showChartData, titleSize, titleText) {
+  showChart(showChartData, titleSize, titleText, labelFont) {
     let name, value, color;
     name = showChartData[0];
     value = showChartData[1];
@@ -107,7 +107,7 @@ export default class CHARTUI {
             labels: {
               // This more specific font property overrides the global property
               fontColor: 'black',
-              fontSize: 16,
+              fontSize: labelFont,
               fontStyle: 'bold',
             },
           },
