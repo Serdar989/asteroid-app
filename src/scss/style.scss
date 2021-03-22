@@ -271,6 +271,9 @@ html {
 body#table-page {
   background: url('./../images/asteroid-4376064_1920.jpg') center center fixed;
   font-size: $default-font-size;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   .table-wrapper {
     padding: 30px;
     background: $backgroundGray;
